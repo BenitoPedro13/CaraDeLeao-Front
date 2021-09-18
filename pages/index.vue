@@ -1,19 +1,14 @@
 <template>
   <div class="">
-    <Nuxt/>
+    <Nuxt />
   </div>
 </template>
 
 <script>
-
-export default {
-
-
-}
+export default {}
 </script>
 
-<style lang="stylus" scoped>
+<style lang="scss" scoped>
 
 </style>>
 
-</style>

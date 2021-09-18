@@ -108,16 +108,18 @@ export default {
 
 <style lang="scss" scoped>
 
-$font-color-primary: #F2994A !important;
-$font-color-secondary: #219653 !important;
+$font-color-primary: white !important;
+$font-color-secondary: black !important;
+
+$bg-color-primary: #F2994A !important;
+$bg-color-secondary: #219653 !important;
 
 $font-stack-primary: 'Axiforma', sans-serif;
 $font-stack-secondary: 'Nexa';
 
-$font-size-header-logo: 28px;
 $font-size-line: 24px;
 $font-size-footer-big: 36px;
-$font-size-footer-small: 16px;
+$font-size-footer-small: 14px;
 $font-size-footer-cta-header: 20px;
 $font-size-footer-cta-subheader: 28px;
 $font-size-copyright: 14px;
@@ -125,7 +127,8 @@ $font-size-copyright: 14px;
 
 
 .v-footer {
-  height: 600px;
+  
+  height: 670px;
   position: relative;
   padding: 0 100px;
   justify-content: space-evenly;
