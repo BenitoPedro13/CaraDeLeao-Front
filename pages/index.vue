@@ -1,3 +1,19 @@
 <template>
-  <div class=""></div>
+  <div class="">
+    <Nuxt/>
+  </div>
 </template>
+
+<script>
+
+export default {
+
+
+}
+</script>
+
+<style lang="stylus" scoped>
+
+</style>>
+
+</style>
