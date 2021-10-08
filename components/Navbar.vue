@@ -13,7 +13,13 @@
       <v-toolbar-title v-text="title" />
     </nuxt-link>
     <v-spacer />
-    <v-btn-toggle v-model="toggle_exclusive" mandatory group class="nav">
+    <v-btn-toggle
+      v-if="!mobile"
+      v-model="toggle_exclusive"
+      mandatory
+      group
+      class="nav"
+    >
       <nuxt-link to="/sobre">
         <v-btn text class="nav-menu">sobre</v-btn>
       </nuxt-link>
@@ -27,6 +33,10 @@
         <v-btn text class="nav-menu">contato</v-btn>
       </nuxt-link>
     </v-btn-toggle>
+    <div v-else class="hamburguer-menu">
+      <div class="top-bar"></div>
+      <div class="bottom-bar"></div>
+    </div>
   </v-app-bar>
 </template>
 
@@ -37,14 +47,40 @@ export default {
     title: {
       type: String,
       default: 'cara de leao',
-    }
+    },
   },
   data() {
     return {
+      width: undefined,
+      mobile: undefined,
       toggle_exclusive: undefined,
       collapseOnScroll: true,
-      primaryColor: "transparent"
+      primaryColor: 'transparent',
     }
+  },
+  computed: {
+    isMobile() {
+      if (this.width >= 767) {
+        return false
+      }
+      return true
+    },
+  },
+  watch: {
+    width() {
+      this.mobile = this.isMobile
+    },
+  },
+  mounted() {
+    window.addEventListener('resize', (_event) => {
+      this.getWidth()
+    })
+  },
+  methods: {
+    getWidth() {
+      const width = window.innerWidth
+      this.width = width
+    },
   },
 }
 </script>
@@ -74,6 +110,7 @@ a {
 header {
   width: 100vw;
   padding: 0 23px;
+  background-color: $bg-color-primary;
 }
 
 .v-toolbar__content > a {
@@ -92,7 +129,6 @@ header {
 }
 
 .nav {
-  width: 35%;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -117,5 +153,27 @@ header {
   .nav-menu {
     font-weight: bold;
   }
+}
+
+.hamburguer-menu {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.top-bar,
+.bottom-bar {
+  content: '';
+  display: block;
+  background-color: $font-color-primary;
+  height: 7px;
+}
+
+.top-bar {
+  width: 28px;
+  margin-bottom: 7px;
+}
+.bottom-bar {
+  width: 55px;
 }
 </style>
