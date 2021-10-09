@@ -41,11 +41,11 @@
           <nuxt-link to="/servicos">
             <v-btn text class="copyright">serviços</v-btn>
           </nuxt-link>
-          <nuxt-link to="/institucional">
-            <v-btn text class="copyright">institucional</v-btn>
-          </nuxt-link>
           <nuxt-link to="/cookies">
             <v-btn text class="copyright">cookies</v-btn>
+          </nuxt-link> 
+         <nuxt-link to="/institucional">
+            <v-btn text class="copyright">institucional</v-btn>
           </nuxt-link>
         </div>
       </div>
@@ -214,7 +214,7 @@ input.active {
 .enviar {
   font-family: Nexa;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: 16px;
   font-size: 48px;
   line-height: 48px;
   display: flex;
@@ -232,11 +232,10 @@ input.active {
 }
 
 %base-footer-policies {
-  align-items: flex-end;
   color: $font-color-primary;
   display: flex;
   font-family: $font-stack-primary;
-  font-weight: thin;
+  font-weight: 300;
   font-size: $font-size-copyright;
   line-height: 22px;
   text-transform: uppercase;
@@ -247,12 +246,13 @@ input.active {
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
 }
 .copyright {
   @extend %base-footer-policies;
+  flex-direction: column;
   a {
     text-decoration: none;
-    margin: 0 8px
   }
 
   a:hover {
