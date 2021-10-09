@@ -5,12 +5,12 @@
         <h1>{{ somos }}</h1>
       </div>
       <div class="conte">
-        <h1>
+        <h1 v-html="footerCta">
           conte qualquer <br />
           coisa pra gente.
         </h1>
       </div>
-      <div class="journal">fique atualizado sobre nossos produtos.</div>
+      <div class="journal">fique atualizado com nossos melhores produtos.</div>
       <form action="">
         <input
           id="nome"
@@ -30,35 +30,12 @@
         />
         <v-btn text class="enviar"
           >enviar
-          <svg
-            width="80"
-            height="16"
-            viewBox="0 0 106 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0.999948 7.7169L104 8.01758"
-              stroke="white"
-              stroke-width="3"
-            />
-            <path
-              d="M104 8.01758L98.0171 2.00009"
-              stroke="white"
-              stroke-width="3"
-            />
-            <path
-              d="M104 8.01736L97.9822 13.9998"
-              stroke="white"
-              stroke-width="3"
-            />
-          </svg>
+          <img src="@/assets/img/seta.svg" alt="enviar">
         </v-btn>
       </form>
       <div class="policies">
         <div class="copy">
-          © {{ somos }} 2021. Todos os Direitos <br />
-          Reservados
+          © {{ somos }} 2021. Todos os Direitos Reservados
         </div>
         <div class="copyright">
           <nuxt-link to="/servicos">
@@ -86,6 +63,10 @@ export default {
       cor: {
         type: String,
         default: '#ffffff'
+      },
+      footerCta: {
+        type: String,
+        default: 'conte qualquer <br/> coisa pra gente.'
       }
     },
     data() {
@@ -130,7 +111,7 @@ $font-size-copyright: 14px;
   
   height: 670px;
   position: relative;
-  padding: 0 100px;
+  padding: 0 42px;
   justify-content: space-evenly;
   align-items: flex-start;
   flex-direction: column;
@@ -146,14 +127,14 @@ $font-size-copyright: 14px;
     color: $font-color-primary;
   }
   p {
-    font-weight: thin;
-    font-size: $font-size-footer-small;
+    font-weight: 300;
+    font-size: 18px;
     line-height: 20px;
   }
   h1 {
     font-weight: bold;
-    font-size: $font-size-footer-big;
-    line-height: 32px;
+    font-size: 18px;
+    line-height: 20px;
   }
 }
 
@@ -163,34 +144,39 @@ $font-size-copyright: 14px;
   color: $font-color-primary;
 }
 
-.conte {
+.conte h1{
   @extend %base-footer-cta;
-  font-family: $font-stack-secondary;
-  font-weight: normal;
-  font-size: $font-size-footer-cta-header;
-  line-height: 80px;
+  font-family: $font-stack-primary;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 46px;
 }
 .journal {
   @extend %base-footer-cta;
   font-family: $font-stack-primary;
-  font-weight: bold;
-  font-size: $font-size-footer-cta-subheader;
-  line-height: 36px;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 25px;
 }
 form {
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: space-evenly;
+  flex-direction: column;
+  max-width: 753px;
+  width: 100%;
 }
 input {
-  margin-right: 30px;
+  width: 100%;
   font-weight: bold;
-  font-size: $font-size-footer-big;
-  line-height: 48px;
+  font-size: 24px;
+  height: 50px;
   color: $font-color-primary;
   outline: none;
   opacity: 0.5;
   border-bottom: 1px solid $font-color-primary;
+  font-family: Nexa;
+  margin-bottom: 10px;
 }
 
 input::placeholder{
@@ -226,17 +212,21 @@ input.active {
 }
 
 .enviar {
+  font-family: Nexa;
   font-weight: bold;
-  font-size: $font-size-footer-big;
+  margin-top: 10px;
+  font-size: 48px;
   line-height: 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-transform: lowercase;
-  width: 250px !important;
+  width: 280px !important;
   color: $font-color-primary;
+  letter-spacing: 0px;
+  padding: 0px;
 
-  :hover svg {
+  :hover img {
     animation: 0.7s enviar infinite;
   }
 }
@@ -260,6 +250,20 @@ input.active {
 }
 .copyright {
   @extend %base-footer-policies;
+  a {
+    text-decoration: none;
+    margin: 0 8px
+  }
+
+  a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+button.copyright {
+  display: flex;
+  align-items: center;
 }
 
 </style>

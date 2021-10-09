@@ -2,7 +2,7 @@
   <div class="default-layout">
     <Navbar :title="marca"/>
     <Nuxt style="min-height: 100vh"/>
-    <FooterBottom :cor="backgroundColor" :somos="marca" />
+    <FooterBottom :cor="backgroundColor" :somos="marca" :footerCta="cta" />
   </div>
 </template>
 
@@ -18,7 +18,8 @@ export default {
   data() {
     return {
       backgroundColor: '#F0892E',
-      marca: 'cara de leao'
+      marca: 'cara de leao',
+      cta: 'Conte pra gente sobre seu pet, vamos cuidar como um leao.'
     }
   },
 }
