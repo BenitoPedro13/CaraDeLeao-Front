@@ -108,7 +108,6 @@ $font-size-copyright: 14px;
 
 
 .v-footer {
-  
   height: 670px;
   position: relative;
   padding: 0 42px;
