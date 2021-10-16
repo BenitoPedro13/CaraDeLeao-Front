@@ -44,7 +44,7 @@
           <nuxt-link to="/cookies">
             <v-btn text class="copyright">cookies</v-btn>
           </nuxt-link> 
-         <nuxt-link to="/institucional">
+          <nuxt-link to="/institucional">
             <v-btn text class="copyright">institucional</v-btn>
           </nuxt-link>
         </div>
