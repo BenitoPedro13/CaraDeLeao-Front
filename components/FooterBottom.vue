@@ -28,10 +28,13 @@
           placeholder="email"
           :class="isEmpty(email)"
         />
-        <v-btn text class="enviar"
-          >enviar
-          <img src="@/assets/img/seta.svg" alt="enviar">
-        </v-btn>
+        <div class="cta-footer">
+          <v-btn text class="enviar"
+            >enviar
+            <img src="@/assets/img/seta.svg" alt="enviar">
+          </v-btn>
+          <WppCTA :phone="5521912345678"/>
+        </div>
       </form>
       <div class="policies">
         <div class="copy">
@@ -53,8 +56,13 @@
 </template>
 
 <script>
+import WppCTA from '@/components/WppCTA.vue'
+
 export default {
     name: 'FooterBottom',
+    components: [
+      WppCTA
+    ],
     props: {
       somos: {
         type: String,
@@ -176,6 +184,9 @@ input {
   border-bottom: 1px solid $font-color-primary;
   font-family: Nexa;
   margin-bottom: 10px;
+  & + input {
+    margin-bottom: 25px;
+  }
 }
 
 input::placeholder{
@@ -265,4 +276,9 @@ button.copyright {
   align-items: center;
 }
 
+.cta-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 </style>
