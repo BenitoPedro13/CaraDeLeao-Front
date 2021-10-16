@@ -12,7 +12,8 @@
       </div>
       <div class="journal">fique atualizado com nossos melhores produtos.</div>
       <form action="">
-        <input
+        <div class="input-container">
+          <input
           id="nome"
           v-model="name"
           type="text"
@@ -28,6 +29,7 @@
           placeholder="email"
           :class="isEmpty(email)"
         />
+        </div>
         <div class="cta-footer">
           <v-btn text class="enviar"
             >enviar
@@ -170,8 +172,10 @@ form {
   align-items: left;
   justify-content: space-evenly;
   flex-direction: column;
-  max-width: 753px;
   width: 100%;
+  .input-container {
+    max-width: 753px;
+  }
 }
 input {
   width: 100%;
@@ -185,7 +189,7 @@ input {
   font-family: Nexa;
   margin-bottom: 10px;
   & + input {
-    margin-bottom: 25px;
+    margin-bottom: 0px;
   }
 }
 
@@ -280,5 +284,22 @@ button.copyright {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  
 }
+
+@media (max-width: 720px) {
+  .cta-footer {
+    flex-direction: column;
+    button {
+      margin-top: 25px;
+
+      & + button {
+        margin-top: 15px;
+      }
+    }
+  }
+  
+    
+  }
 </style>
